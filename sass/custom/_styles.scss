@@ -2,6 +2,8 @@
 // Add styles here to make changes without digging in too much
 
 .header {
+  margin: 2em 0;
+
   .title a {
     font-size: 1.4em;
     text-decoration: none;
@@ -9,5 +11,62 @@
   }
   .author {
     color:#999;
+  }
+}
+
+article .pagination {
+  margin: 0;
+
+  .left, .right {
+    position: fixed;
+    font-size:2em;
+    top:50%;
+    margin:-1em 1em 0;
+    color: #bbb;
+  }
+
+  .left:hover, .right:hover {
+    color: #ddd;
+  }
+
+  .left {
+    left:0;
+  }
+
+  .right {
+    right:0;
+  }
+}
+
+.meta {
+  time {
+    font-size:0.9em;
+    font-weight:bold;
+    color:#777;
+  }
+}
+
+// fix code snippet line numbers
+figure.code pre.line-numbers, figure.code pre code {
+  white-space: pre;
+}
+
+iframe.bootstrap-tags-iframe {
+  width:49%;
+  height:400px;
+  float:left;
+}
+
+@media (max-width: 834px) {
+  article .pagination {
+    .left, .right {
+      position: relative;
+      top:0;
+      margin: 1em;
+    }
+  }
+  iframe.bootstrap-tags-iframe {
+    width:100%;
+    float:left;
   }
 }
