@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Things & Stuff]]></title>
+  <link href="http://maxwells.github.io/atom.xml" rel="self"/>
+  <link href="http://maxwells.github.io/"/>
+  <updated>2013-12-30T22:48:32-05:00</updated>
+  <id>http://maxwells.github.io/</id>
+  <author>
+    <name><![CDATA[Max Lahey]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[K]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/k/"/>
+    <updated>2013-12-30T18:56:07-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/k</id>
+    <content type="html"><![CDATA[<h4>The issue, as I see it</h4>
+
+<p>There are (relatively minor) negatives to rendering Backbone data to page</p>
+
+<ul>
+<li>A rendered view is for displaying data. Data that Backbone uses will most often be manipulated, which to me seems like a violation of what a view is supposed to do.</li>
+<li>If using Backbone on multiple views, application-wide configuration must be provided and rendered each time</li>
+<li>If rendering serialized data to configure backbone, and it ends up improperly formatted (or doesn&rsquo;t exist), javascript on your page will break.</li>
+</ul>
+
+
+<!--more-->
+
+
+<p>When I started to work with Backbone, I found myself often serializing a Collection in a controller, and displaying it in the view right in a section of CoffeeScript. For example, I&rsquo;ve used Backbone to CRUD one model (User), dependant on it&rsquo;s relationship to another (an API Client). If I am building a view to edit users, and I am assigning them to a client, there are a number of options:</p>
+
+<ul>
+<li>Render my clients onto the page upfront</li>
+<li>Perform a GET to retrieve all my clients from backbone as soon as my router renders</li>
+<li>don&rsquo;t initialize the router until the clients data is fetched</li>
+<li>Fetch as needed (in it&rsquo;s own call) in the view, bind an event to not render until clients are reset</li>
+<li>Wrap the results of the first Backbone request with the application wide configuration data</li>
+</ul>
+
+
+<p>I ended up choosing the final option, because it doesn&rsquo;t render onto the page, it doesn&rsquo;t have to spin up another Rails instance to fetch the data, and after I implement it, I won&rsquo;t have to remember to do anything special when adding Backbone to a new view.</p>
+
+<p>when I obviously wouldn&rsquo;t release new code every time we add a client, nor would I want to make a call to get a list of . While rendering these data worked just fine, it left a bad taste in my mouth.</p>
+
+<p>It might end up looking something like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'>  <span class="nx">$</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nb">window</span><span class="p">.</span><span class="nv">router = </span><span class="k">new</span> <span class="nx">Application</span><span class="p">.</span><span class="nx">Routers</span><span class="p">.</span><span class="nx">MyRouter</span>
+</span><span class='line'>      <span class="nv">collection: </span><span class="o">&lt;%=</span> <span class="nx">@collection_as_json</span> <span class="o">%&gt;</span>
+</span><span class='line'>      <span class="nv">current_user: </span><span class="o">&lt;%=</span> <span class="nx">@current_user_as_json</span> <span class="o">%&gt;</span>
+</span><span class='line'>      <span class="nv">some_options_that_shouldnt_be_hardcoded: </span><span class="o">&lt;%=</span> <span class="nx">@options</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which renders to be pretty ugly if/when things get complicated, and will break the entire backbone application when your view variable doesn&rsquo;t actually exist.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[J]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/j/"/>
+    <updated>2013-12-30T18:55:46-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/j</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/i/"/>
+    <updated>2013-12-30T18:55:43-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/i</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[H]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/h/"/>
+    <updated>2013-12-30T18:55:40-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/h</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[G]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/g/"/>
+    <updated>2013-12-30T18:55:37-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/g</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[F]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/f/"/>
+    <updated>2013-12-30T18:54:11-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/f</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[E]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/e/"/>
+    <updated>2013-12-30T18:54:08-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/e</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[D]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/d/"/>
+    <updated>2013-12-30T18:54:05-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/d</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[C]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/c/"/>
+    <updated>2013-12-30T18:54:03-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/c</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[B]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/b/"/>
+    <updated>2013-12-30T18:54:00-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/b</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A]]></title>
+    <link href="http://maxwells.github.io/blog/2013/12/30/a/"/>
+    <updated>2013-12-30T18:53:56-05:00</updated>
+    <id>http://maxwells.github.io/blog/2013/12/30/a</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+</feed>
