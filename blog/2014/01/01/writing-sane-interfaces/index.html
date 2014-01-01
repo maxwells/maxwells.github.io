@@ -1,24 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Things & Stuff]]></title>
-  <link href="http://maxwells.github.io/atom.xml" rel="self"/>
-  <link href="http://maxwells.github.io/"/>
-  <updated>2014-01-01T15:19:15-05:00</updated>
-  <id>http://maxwells.github.io/</id>
-  <author>
-    <name><![CDATA[Max Lahey]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Writing Sane Interfaces - Things & Stuff</title>
+  <meta name="author" content="Max Lahey">
 
   
-  <entry>
-    <title type="html"><![CDATA[Writing Sane Interfaces]]></title>
-    <link href="http://maxwells.github.io/blog/2014/01/01/writing-sane-interfaces/"/>
-    <updated>2014-01-01T11:15:27-05:00</updated>
-    <id>http://maxwells.github.io/blog/2014/01/01/writing-sane-interfaces</id>
-    <content type="html"><![CDATA[<p>Halfway through 2012, I started my first full time software development gig. Spending day in and day out extending and maintaining the same codebase has taught me a number of things that freelance projects never did, and I&rsquo;d like to share a few lessons I&rsquo;ve learned. These are all things I <em>knew</em> intellectually, but ultimately had to find out for myself through frustration to incorporate into my every day practice.</p>
+  <meta name="description" content="Halfway through 2012, I started my first full time software development gig. Spending day in and day out extending and maintaining the same codebase &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://maxwells.github.io/blog/2014/01/01/writing-sane-interfaces">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Things & Stuff" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script type="text/javascript" src="//use.typekit.net/nsy3obl.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body >
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2"
+    <header role="banner"><div class='header'>
+  <div class='title'><a href="/">Things & Stuff</a></div>
+  <div class='author'>Max Lahey</div>
+  
+</div>
+</header>
+    <hr />
+    <div id="main">
+      <div id="content">
+        <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Writing Sane Interfaces</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-01T11:15:27-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Halfway through 2012, I started my first full time software development gig. Spending day in and day out extending and maintaining the same codebase has taught me a number of things that freelance projects never did, and I&rsquo;d like to share a few lessons I&rsquo;ve learned. These are all things I <em>knew</em> intellectually, but ultimately had to find out for myself through frustration to incorporate into my every day practice.</p>
 
 <p>When tasked with a new feature that is core to an application, my first impulse is to talk and think through the functionality and edge cases. What does it need to do? What&rsquo;s the most reasonable, non-arcane, and maintainable architecture I can come up with? By this point, I&rsquo;m eager to sit down and write some code. I invariably regret it when I do. The code that results will fit the feature spec in that it <em>does what it&rsquo;s supposed to</em>, but can be an unpleasant experience to leverage and maintain.</p>
 
@@ -56,7 +116,96 @@
 <p>My first draft provided customer as an optional parameter to Queue construction. With the additional constraint that queues support internationalization/locales, I opted to create a QueueIdentifier class whose responsibility was naming queues based on an arbitrary set of designations. This extracted any <code>if customer then ... else ...</code> logic from the Queue. In my experience, seeking a generalized solution from the beginning will keep the application logic simpler when new constraints are introduced.</p>
 
 <p>In short, seeing multiple entry points to do strikingly similar (if not identical) things raises red flags for me. It&rsquo;s unintuitive, difficult to maintain, and in my eyes is characteristic of a difficult interface.</p>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-</feed>
+
+<span class="byline author vcard">Posted by <span class="fn">Max Lahey</span></span>
+
+      <!-- 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-01T11:15:27-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2014</time> -->
+      
+
+
+    </p>
+  </footer>
+  <div class="pagination">
+    
+    
+  </div>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/01/01/writing-sane-interfaces/">Writing Sane Interfaces</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+      </div>
+    </div>
+    <div class="pagination">
+      
+      
+    </div>
+    <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Max Lahey -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+</footer>
+    
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>
